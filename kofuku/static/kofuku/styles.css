@@ -1,0 +1,32 @@
+body {
+	background: rgba(104, 245, 167, 0.8);
+	font-family: 'Oswald', 'Futura', sans-serif;
+}
+/* #wrapper {
+	margin-top: 10% !important;
+	border-radius: 25px;
+} */
+
+#content {
+	background: beige;
+	padding: 5%;
+	margin: 3%;
+}
+#content > h2 {
+	font-size: 18px;
+	text-align: center;
+	padding-top: 0;
+}
+.t10 {
+	margin-top: 10px;
+}
+.t20 {
+	margin-top: 20px;
+}
+footer {
+	margin-top: 20px;
+	color: white;
+}
+.list-group-item {
+	color: black;
+}
