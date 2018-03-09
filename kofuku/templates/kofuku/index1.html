@@ -6,108 +6,83 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>♥KOFUKU♥</title>
-
 		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-
+		<script defer src="{% static 'kofuku/bs/js/fontawesome-all.js' %}"></script>
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="{% static 'kofuku/bs/css/flatly.min.css' %}" />
 		<link rel="stylesheet" href="{% static 'kofuku/styles.css' %}" />
 	</head>
 	<body>
-
-		<div class="container-fluid" id="wrapper">
-			<!--The gratitude list-->
-			<div class="row row1">
-				<div class="col-lg-4 col-lg-offset-4" id="content">
-					<h2>WHAT ARE YOU GRATEFUL FOR?</h2>
-					
-					<form action ="{% url 'addGrat' %}" method="POST" role="form">
-						{% csrf_token %}
-						<div class="form-group">
-							<div class="input-group">
-							  {{ form1.text1 }}
-							  <span class="input-group-btn">
-								  <button type="submit" class="btn btn-default" id="add-btn1">ADD</button>
-							  </span>
-							</div>
-						</div>
-					</form>
-
-					<div class="row t10">
-						<div class="col-lg-12">
-							<div class="btn-toolbar">
-								<div class="btn-group">
-									<a href="{% url 'deletecompleteGrat' %}"><button type="button" class="btn btn-warning">
-										<i class="glyphicon glyphicon-trash"></i> DELETE COMPLETED
-									</button></a>
-								</div>
-								<div class="btn-group">
-									<a href="{% url 'deleteallGrat' %}"><button type="button" class="btn btn-warning">
-										<i class="glyphicon glyphicon-trash"></i> DELETE ALL
-									</button></a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<ul class="list-group t20">
-						{% for grat in grat_list %}
-							{% if grat.complete1 %}
-							<li class="list-group-item grat-completed">{{ grat.text1 }}</li>
-							{% else %}
-							<a href ="{% url 'completeGrat' grat.id %}"><li class="list-group-item">{{ grat.text1 }}</li></a>
-							{% endif %}
-						{% endfor %}
-					</ul>
+		<!-- uote -->
+		<!-- <div class = "container-fluid">
+			<div class= "row">
+				<div class ="col">
+					<h5>Calm is a superpower.</h5>
 				</div>
 			</div>
-
-			<!--The goal list-->
-			<div class="row row2">
-				<div class="col-lg-4 col-lg-offset-4" id="content">
-					<h2>WHAT ARE YOUR 3 GOALS?</h2>
-					
-					<form action ="{% url 'addGoal' %}" method="POST" role="form">
-						{% csrf_token %}
-						<div class="form-group">
-							<div class="input-group">
-								{{ form2.text2 }}
-							  <span class="input-group-btn">
-								  <button type="submit" class="btn btn-default" id="add-btn">ADD</button>
-							  </span>
-							</div>
+		</div> -->
+		<!--The gratitude list-->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5" id="content">
+							<h2>WHAT ARE YOU GRATEFUL FOR?</h2>
+							<form action ="{% url 'addgrat' %}" method="POST" role="form">
+								{% csrf_token %}
+								<div class="form-group">
+									<div class="input-group">
+									{{ form_grat.text_grat }}
+									<span class="input-group-btn">
+										<button type="submit" class="btn btn-default" id="add-btn">ADD</button>
+									</span>
+									</div>
+								</div>
+							</form>		
+			
+							<ul class="list-group t20">
+								{% for grat in grat_list %}
+									{% if grat.complete_grat %}
+									<li class="list-group-item"><i class="fas fa-heart"></i>  {{ grat.text_grat }}</li>
+									{% else %}
+									<a href ="{% url 'completegrat' grat.id %}"><li class="list-group-item"><i class="far fa-heart"></i>  {{ grat.text_grat }}</li></a>
+									{% endif %}
+								{% endfor %}
+							</ul>
 						</div>
-					</form>
+				
+				<!--The goal list-->
+						<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5" id="content">
+							<h2>WHAT ARE YOUR 3 GOALS?</h2>
+							
+							<form action ="{% url 'addgoal' %}" method="POST" role="form">
+								{% csrf_token %}
+								<div class="form-group">
+									<div class="input-group">
+										{{ form_goal.text_goal }}
+										<span class="input-group-btn">
+											<button type="submit" class="btn btn-default" id="add-btn-goal">ADD</button>
+										</span>
+									</div>
+								</div>
+							</form>
 
-					<div class="row t10">
-						<div class="col-lg-12">
-							<div class="btn-toolbar">
-								<div class="btn-group">
-									<a href="{% url 'deletecompleteGoal' %}"><button type="button" class="btn btn-warning">
-										<i class="glyphicon glyphicon-trash"></i> DELETE COMPLETED
-									</button></a>
-								</div>
-								<div class="btn-group">
-									<a href="{% url 'deleteallGoal' %}"><button type="button" class="btn btn-warning">
-										<i class="glyphicon glyphicon-trash"></i> DELETE ALL
-									</button></a>
-								</div>
-							</div>
+							<ul class="list-group t20">
+								{% for goal in goal_list %}
+									{% if goal.complete_goal %}
+									<li class="list-group-item"><i class="far fa-check-square"></i>  {{ goal.text_goal }}</li>
+									{% else %}
+									<a href ="{% url 'completegoal' goal.id %}"><li class="list-group-item"><i class="far fa-square"></i>  {{ goal.text_goal }}</li></a>
+									{% endif %}
+								{% endfor %}
+							</ul>
 						</div>
 					</div>
-
-					<ul class="list-group t20">
-							{% for goal in goal_list %}
-								{% if goal.complete2 %}
-								<li class="list-group-item goal-completed">{{ goal.text2 }}</li>
-								{% else %}
-								<a href ="{% url 'completeGoal' goal.id %}"><li class="list-group-item">{{ goal.text2 }}</li></a>
-								{% endif %}
-							{% endfor %}
-					</ul>
 				</div>
 			</div>
-
+		</div>
+		
+		
 			<footer>
 				<div class="row pad">
 					<div class="col-lg-12 text-center">

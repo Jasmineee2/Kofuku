@@ -13,14 +13,14 @@
 		<link rel="stylesheet" href="{% static 'kofuku/styles.css' %}" />
 	</head>
 	<body>
-		<!-- uote -->
-		<!-- <div class = "container-fluid">
+		<!--quote -->
+		<div class = "container-fluid">
 			<div class= "row">
 				<div class ="col">
-					<h5>Calm is a superpower.</h5>
+					<h5>Calm is a superpower.</h5><i class="fas fa-history" style="font-size:20px;color:white;"></i>
 				</div>
 			</div>
-		</div> -->
+		</div>
 		<!--The gratitude list-->
 		<div class="container-fluid">
 			<div class="row">
@@ -43,9 +43,9 @@
 							<ul class="list-group t20">
 								{% for grat in grat_list %}
 									{% if grat.complete_grat %}
-									<li class="list-group-item"><i class="fas fa-heart"></i>  {{ grat.text_grat }}</li>
+									<li class="list-group-item" id="mark"><i class="fas fa-heart" style="font-size:18px;color:rgb(250, 33, 116);"></i>  {{ grat.text_grat }}<i class="far fa-trash-alt pull-right" style="font-size:15px;color:grey;"></i></li>
 									{% else %}
-									<a href ="{% url 'completegrat' grat.id %}"><li class="list-group-item"><i class="far fa-heart"></i>  {{ grat.text_grat }}</li></a>
+									<a href ="{% url 'completegrat' grat.id %}"><li class="list-group-item"><i class="far fa-heart" style="font-size:18px;color:rgb(245, 45, 61);"></i>  {{ grat.text_grat }}<i class="far fa-trash-alt pull-right" style="font-size:15px;color:grey;"></i></li></a>
 									{% endif %}
 								{% endfor %}
 							</ul>
@@ -70,9 +70,9 @@
 							<ul class="list-group t20">
 								{% for goal in goal_list %}
 									{% if goal.complete_goal %}
-									<li class="list-group-item"><i class="far fa-check-square"></i>  {{ goal.text_goal }}</li>
+									<li class="list-group-item"><i class="far fa-check-square" style="font-size:15px;color:rgba(50, 206, 120, 0.8);"></i>  {{ goal.text_goal }}<i class="far fa-trash-alt pull-right" style="font-size:15px;color:grey;"></i></li>
 									{% else %}
-									<a href ="{% url 'completegoal' goal.id %}"><li class="list-group-item"><i class="far fa-square"></i>  {{ goal.text_goal }}</li></a>
+									<a href ="{% url 'completegoal' goal.id %}"><li class="list-group-item"><i class="far fa-square" style="font-size:15px;color:rgba(55, 220, 129, 0.8);"></i>  {{ goal.text_goal }}<i class="far fa-trash-alt pull-right" style="font-size:15px;color:grey;"></i></li></a>
 									{% endif %}
 								{% endfor %}
 							</ul>
