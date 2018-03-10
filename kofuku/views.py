@@ -27,7 +27,7 @@ def addGrat(request):
     if form_grat.is_valid():
         new_grat = Grat(text_grat=request.POST['text_grat'])
         new_grat.save()
-    return redirect('indexgrat')
+    return redirect('index')
 
     
 
@@ -36,7 +36,13 @@ def completeGrat(request, grat_id):
     grat.complete_grat = True
     grat.save()
 
-    return redirect('indexgrat')
+    return redirect('index')
+
+def deleteGrat(request, grat_id):
+    grat = Grat.objects.get(pk=grat_id)
+    grat.delete_grat = True
+    grat.delete()
+    return redirect('index')
 
 #GOALS
 
@@ -52,11 +58,17 @@ def addGoal(request):
     if form_goal.is_valid():
         new_goal = Goal(text_goal=request.POST['text_goal'])
         new_goal.save()
-    return redirect('indexgrat')
+    return redirect('index')
 
 def completeGoal(request, goal_id):
     goal = Goal.objects.get(pk=goal_id)
     goal.complete_goal = True
     goal.save()
 
-    return redirect('indexgrat')
+    return redirect('index')
+
+def deleteGoal(request, goal_id):
+    goal = Goal.objects.get(pk=goal_id)
+    goal.delete_goal = True
+    goal.delete()
+    return redirect('index')

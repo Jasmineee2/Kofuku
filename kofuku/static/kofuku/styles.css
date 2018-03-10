@@ -2,28 +2,44 @@ body {
 	background: rgba(104, 245, 167, 0.8);
 	font-family: 'Oswald', 'Futura', sans-serif;
 }
-/* #wrapper {
-	margin-top: 10% !important;
-	border-radius: 25px;
-} */
+#quote {
+	padding: 2%;
+	margin: 3%;
+	border: 3px solid rgb(236, 241, 236);
+}
+
+#quote > h3 {
+	color: white;
+	font-family:'Open Sans', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	/* margin-top:5%;
+	padding: 3%; */
+}
 
 #content {
 	background: beige;
-	padding: 5%;
-	margin: 3%;
+	padding: 8%;
+	margin: 4%;
 }
 #content > h2 {
-	font-size: 18px;
+	font-size: 20px;
 	text-align: center;
 	padding-top: 0;
 }
-.t10 {
-	margin-top: 10px;
-}
+/* .t10 {
+	margin-top: 10%;
+} */
 .t20 {
-	margin-top: 20px;
+	margin-top: 5%;
 }
-
+.completed {
+	text-decoration: line-through;
+	background: rgba(149, 165, 166, .3);
+}
+.grat-comp {
+	background: rgba(247, 144, 199, 0.3);
+}
 footer {
 	margin-top: 20px;
 	color: white;
@@ -31,5 +47,6 @@ footer {
 .list-group-item {
 	color: black;
 }
+
 
 
