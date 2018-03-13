@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>♥KOFUKU♥</title>
+		<title>♥KOFUKU/HISTORY♥</title>
 		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 		<script defer src="{% static 'kofuku/bs/js/fontawesome-all.js' %}"></script>
 		<!-- Bootstrap CSS -->
@@ -20,18 +20,7 @@
 				<div class="col-md-12">
 					<div class="row">
 						<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5" id="content">
-							<h2>WHAT ARE YOU GRATEFUL FOR?</h2>
-							<form action ="{% url 'addgrat' %}" method="POST" role="form">
-								{% csrf_token %}
-								<div class="form-group">
-									<div class="input-group">
-									{{ form_grat.text_grat }}
-									<span class="input-group-btn">
-										<button type="submit" class="btn btn-default" id="add-btn">ADD</button>
-									</span>
-									</div>
-								</div>
-							</form>		
+							<h2>GRATITUDE HISTORY</h2>
 			
 							<ul class="list-group t20">
 								{% for grat in grat_list %}
@@ -46,19 +35,7 @@
 				
 				<!--The goal list-->
 						<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5" id="content">
-							<h2>WHAT ARE YOUR 3 GOALS?</h2>
-							
-							<form action ="{% url 'addgoal' %}" method="POST" role="form">
-								{% csrf_token %}
-								<div class="form-group">
-									<div class="input-group">
-										{{ form_goal.text_goal }}
-										<span class="input-group-btn">
-											<button type="submit" class="btn btn-default" id="add-btn-goal">ADD</button>
-										</span>
-									</div>
-								</div>
-							</form>
+							<h2>GOAL HISTORY</h2>
 
 							<ul class="list-group t20">
 								{% for goal in goal_list %}

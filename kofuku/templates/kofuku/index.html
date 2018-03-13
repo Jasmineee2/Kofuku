@@ -48,23 +48,52 @@
 								</form>	
 								<!-- <i class="fas fa-history" style="font-size:18px;color:rgb(61, 59, 59);"></i>
 								<i class="fas fa-save" style="font-size:18px;color:rgb(37, 37, 37);"></i> 	 -->
-				
+								
+								<div class="row t10">
+										<div class="btn-toolbar">
+											<div class="btn-group">
+												<a href="{% url 'deletegratcomplete' %}"><button type="button" class="btn btn-outline-secondary">
+													<i class="far fa-trash-alt" style="font-size:15px;"></i> COMPLETED
+												</button></a>
+											</div>
+											<div class="btn-group">
+												<a href="{% url 'deletegratall' %}"><button type="button" class="btn btn-outline-secondary">
+													<i class="far fa-trash-alt" style="font-size:15px;"></i> ALL
+												</button></a>
+											</div>
+											<div class="btn-group">
+												<a href="{% url 'history' %}"><button type="button" class="btn btn-outline-secondary">
+													<i class="fas fa-history" style="font-size:15px;"></i> HISTORY
+												</button></a>
+											</div>
+											<div class="btn-group">
+												<a href="{% url 'savegrat' %}"><button type="button" class="btn btn-outline-secondary">
+													<i class="fas fa-file" style="font-size:15px;"></i> NEW
+												</button></a>
+											</div>
+										</div>
+									
+								</div>
+
 								<ul class="list-group t20">
-									{% for grat in grat_list %}
-										{% if grat.complete_grat %}
-										<li class="list-group-item grat-comp">
-											<i class="fas fa-heart" style="font-size:18px;color:rgb(250, 33, 116);"></i>  {{ grat.text_grat }}
-											 
-											<a href="{% url 'deletegrat' grat.id %}"><button type="button" class="far fa-trash-alt pull-right" style="font-size:15px;color:grey;"></button></a>
-										</li>
-										{% else %}
-										<li class="list-group-item gratt">
-												<a href ="{% url 'completegrat' grat.id %}"><i class="far fa-heart" style="font-size:18px;color:rgb(245, 45, 61);"></i></a>  {{ grat.text_grat }}
-												<a href="{% url 'deletegrat' grat.id %}"><button type="button" class="far fa-trash-alt pull-right" style="font-size:15px;color:grey;"></button></a>
-										</li>
-										</a>
-										{% endif %}
-									{% endfor %}
+										
+											{% for grat in grat_list %}
+												{% if grat.complete_grat %}
+												<li class="list-group-item grat-comp">
+													<i class="fas fa-heart" style="font-size:18px;color:rgb(250, 33, 116);"></i>  {{ grat.text_grat }} {{ grat_added_time }}
+													
+													<a href="{% url 'deletegrat' grat.id %}"><button type="button" class="far fa-trash-alt pull-right" style="font-size:15px;color:grey;"></button></a>
+												</li>
+												{% else %}
+												<li class="list-group-item gratt">
+														<a href ="{% url 'completegrat' grat.id %}"><i class="far fa-heart" style="font-size:18px;color:rgb(245, 45, 61);"></i></a>  {{ grat.text_grat }}
+														<a href="{% url 'deletegrat' grat.id %}"><button type="button" class="far fa-trash-alt pull-right" style="font-size:15px;color:grey;"></button></a>
+												</li>
+												{% endif %}
+										
+											{% endfor %}
+										
+									
 								</ul>
 							</div>
 						</div>
@@ -86,15 +115,41 @@
 									</div>
 								</form>
 
+								<div class="row t10">
+									
+										<div class="btn-toolbar">
+											<div class="btn-group">
+												<a href="{% url 'deletegoalcomplete' %}"><button type="button" class="btn btn-outline-secondary">
+													<i class="far fa-trash-alt" style="font-size:15px;"></i> COMPLETED
+												</button></a>
+											</div>
+											<div class="btn-group">
+												<a href="{% url 'deletegoalall' %}"><button type="button" class="btn btn-outline-secondary">
+													<i class="far fa-trash-alt" style="font-size:15px;"></i> ALL
+												</button></a>
+											</div>
+											<div class="btn-group">
+												<a href="{% url 'history' %}"><button type="button" class="btn btn-outline-secondary">
+													<i class="fas fa-history" style="font-size:15px;"></i> HISTORY
+												</button></a>
+											</div>
+											<div class="btn-group">
+												<a href="{% url 'deletegratall' %}"><button type="button" class="btn btn-outline-secondary">
+													<i class="fas fa-file" style="font-size:15px;"></i> NEW
+												</button></a>
+											</div>
+										</div>
+								</div>
+
 								<ul class="list-group t20">
 									{% for goal in goal_list %}
 										{% if goal.complete_goal %}
-										<li class="list-group-item completed"><i class="far fa-check-square" style="font-size:15px;color:rgba(50, 206, 120, 0.8);"></i>  {{ goal.text_goal }}
+										<li id="list-item" class="list-group-item completed"><i class="far fa-check-square" style="font-size:15px;color:rgba(35, 151, 201, 0.8);"></i>  {{ goal.text_goal }}
 											<a href="{% url 'deletegoal' goal.id %}"><button type="button" class="far fa-trash-alt pull-right" style="font-size:15px;color:grey;"></button></a>
 										</li>
 										{% else %}
-										<li class="list-group-item">
-											<a href ="{% url 'completegoal' goal.id %}"><i class="far fa-square" style="font-size:15px;color:rgba(55, 220, 129, 0.8);"></i></a>  {{ goal.text_goal }}
+										<li id="list-item" class="list-group-item">
+											<a href ="{% url 'completegoal' goal.id %}"><i class="far fa-square" style="font-size:15px;color:rgba(35, 151, 201, 0.8);"></i></a>  {{ goal.text_goal }}
 											<a href="{% url 'deletegoal' goal.id %}"><button type="button" class="far fa-trash-alt pull-right" style="font-size:15px;color:grey;"></button></a>
 										</li>
 										{% endif %}

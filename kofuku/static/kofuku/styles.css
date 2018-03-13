@@ -27,15 +27,17 @@ body {
 	text-align: center;
 	padding-top: 0;
 }
-/* .t10 {
-	margin-top: 10%;
-} */
+.t10 {
+	margin-top: 5%;
+	margin-left: 1%
+
+}
 .t20 {
 	margin-top: 5%;
 }
 .completed {
 	text-decoration: line-through;
-	background: rgba(149, 165, 166, .3);
+	background: rgba(139, 227, 236, 0.3);
 }
 .grat-comp {
 	background: rgba(247, 144, 199, 0.3);
